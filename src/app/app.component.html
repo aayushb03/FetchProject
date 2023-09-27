@@ -1,3 +1,15 @@
 <div>
-  <h5 style="color: red">Testing2</h5>
+  <h5 style="color: red">List of Dogs</h5>
+</div>
+
+<div *ngIf="dogModel">
+  <h2>Breeds</h2>
+  <ul>
+    <li *ngFor="let breed of dogModel.breeds">{{ breed }}</li>
+  </ul>
+
+  <h2>Sub-Breeds</h2>
+  <ul *ngFor="let breed of dogModel.breeds">
+    <li *ngFor="let subBreed of dogModel.subBreeds[breed]">{{ subBreed }}</li>
+  </ul>
 </div>
