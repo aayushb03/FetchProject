@@ -2,26 +2,40 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.3.
 
-## Development server
+[Live Demo](https://aayushb03.github.io/FetchProject/)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Steps to run locally
 
-## Code scaffolding
+### Install Angular
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```shell
+npm install -g @angular/cli
+```
 
-## Build
+### Clone the repo
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+```shell
+git clone https://github.com/aayushb03/FetchProject.git
+cd FetchProject
+```
 
-## Running unit tests
+### Install npm packages
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Install the `npm` packages described in the `package.json` and verify that it works:
 
-## Running end-to-end tests
+```shell
+npm install
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### Run locally
+Project will run on http://localhost:4200/
 
-## Further help
+```shell
+npm start
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+or
+
+```shell
+ng serve
+```
