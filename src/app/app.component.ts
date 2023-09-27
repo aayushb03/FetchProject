@@ -13,10 +13,14 @@ export class AppComponent {
   }
 
   dogModel?: Model;
+  randImage?: String;
 
   ngOnInit() {
-    this.api.getBreeds().subscribe((data) => {
+    this.api.getBreeds().subscribe((data : any) => {
       this.dogModel = new Model(data);
+    })
+    this.api.getRandImg().subscribe((data : any) => {
+      this.randImage = data.message;
     })
   }
 }

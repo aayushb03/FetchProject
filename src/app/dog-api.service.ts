@@ -13,4 +13,8 @@ export class DogApiService {
   getBreeds() {
     return this.http.get('https://dog.ceo/api/breeds/list/all');
   }
+
+  getRandImg() {
+    return this.http.get('https://dog.ceo/api/breeds/image/random');
+  }
 }

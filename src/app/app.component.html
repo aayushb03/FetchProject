@@ -1,5 +1,5 @@
-<div>
-  <h5 style="color: red">List of Dogs</h5>
+<div *ngIf = "randImage">
+  <app-header [image]="randImage"></app-header>
 </div>
 
 <div *ngIf="dogModel">
