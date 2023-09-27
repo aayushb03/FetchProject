@@ -25,18 +25,17 @@ Install the `npm` packages described in the `package.json` and verify that it wo
 
 ```shell
 npm install
-npm start
 ```
 
 ### Run locally
 Project will run on http://localhost:4200/
 
 ```shell
-ng serve
+npm start
 ```
 
-If you want to open immediately:
+or
 
 ```shell
-ng serve -o
+ng serve
 ```
