@@ -17,4 +17,8 @@ export class DogApiService {
   getRandImg() {
     return this.http.get('https://dog.ceo/api/breeds/image/random');
   }
+
+  getBreedImg(breed : String) {
+    return this.http.get('https://dog.ceo/api/breed/' + breed + '/images/random');
+  }
 }

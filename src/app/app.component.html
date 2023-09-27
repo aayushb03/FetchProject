@@ -2,6 +2,21 @@
   <app-header [image]="randImage"></app-header>
 </div>
 
+<div class="wrapper" *ngIf="dogModel && randImage">
+  <div *ngIf="dogModel">
+    <!-- <h2>Breeds</h2>
+    <ul>
+      <li *ngFor="let breed of dogModel.breeds">{{ breed }}</li>
+    </ul> -->
+
+    <div class = "card-container">
+      <div *ngFor="let breed of dogModel.breeds">
+        <app-dogcard [breed] = "breed"></app-dogcard>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div *ngIf="dogModel">
   <h2>Breeds</h2>
   <ul>

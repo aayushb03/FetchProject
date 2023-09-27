@@ -1,0 +1,9 @@
+.wrapper {
+    margin: 2rem; /* Adds margin to the edges of the screen */
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
