@@ -63,4 +63,15 @@ export class AppComponent {
   onDelete(breed : String) {
     this.displayed = this.displayed.filter(x => x!=breed);
   }
+
+  selectAll() {
+    for (const breed of this.dropdown) {
+      this.onSelect(breed);
+    }
+  }
+
+  reset() {
+    this.displayed.length = 0;
+  }
+
 }

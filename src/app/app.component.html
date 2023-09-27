@@ -5,7 +5,7 @@
 <div class="wrapper" *ngIf="dogModel && randImage">
   <div class="btn-container">
     <div ngbDropdown>
-      <button class="btn btn-sm btn-primary" id="breeds" ngbDropdownToggle>Select Breed</button>
+      <button class="btn btn btn-primary" id="breeds" ngbDropdownToggle>Select Breed</button>
       <div ngbDropdownMenu="breeds">
         <div *ngFor="let breed of dropdown">
           <button ngbDropdownItem (click)="onSelect(breed)">{{ breed }}</button>
@@ -13,11 +13,15 @@
       </div>
     </div>
 
-    <div class="form-check form-switch" style="margin-top:0.2rem">
+    <div class="form-check form-switch" style="margin-top:0.5rem">
       <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" [(ngModel)]="showSub"
         (change)="onSubClick()">
-      <label class="form-check-label" for="flexSwitchCheckDefault">Show Sub-Breeds</label>
+      <label class="form-check-label" for="flexSwitchCheckDefault">Show Sub-Breeds In Dropdown</label>
     </div>
+
+    <button class="btn btn btn-success" (click) = "selectAll()" style="width: 7rem">Select All</button>
+
+    <button class="btn btn btn-danger" (click) = "reset()" style="width: 7rem">Remove All</button>
   </div>
 
   <div *ngIf="displayed.length == 0">
