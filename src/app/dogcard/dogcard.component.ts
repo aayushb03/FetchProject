@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { EVENT_MANAGER_PLUGINS } from '@angular/platform-browser';
 import { DogApiService } from '../dog-api.service';
 
@@ -26,8 +26,13 @@ export class DogcardComponent {
   }
 
   @Input() breed?: String;
+  @Output() delete = new EventEmitter<String>();
   image?: string;
   label?: string;
+
+  handleImageError(event: any) {
+    event.target.src = 'https://media3.giphy.com/media/3oEjI6SIIHBdRxXI40/200w.gif?cid=6c09b952bte863vkjup3htoufh75xovqb6se5mreiu76nmjr&ep=v1_gifs_search&rid=200w.gif&ct=g';
+  }
 
   newImage(event : Event) {
     event.preventDefault();
@@ -37,6 +42,13 @@ export class DogcardComponent {
           this.image = data.message;
         }
       })
+    }
+  }
+
+  onDelete(event : Event) {
+    event.preventDefault();
+    if (this.breed) {
+      this.delete.emit(this.breed);
     }
   }
 }

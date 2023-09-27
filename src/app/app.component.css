@@ -1,9 +1,28 @@
 .wrapper {
-    margin: 2rem; /* Adds margin to the edges of the screen */
+    margin: 2rem;
+    /* Adds margin to the edges of the screen */
 }
 
 .card-container {
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
+}
+
+.btn-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.dropdown-menu {
+    max-height: 20rem;
+    width: 18rem;
+    overflow-y: auto;
+    background-attachment: local, local, scroll, scroll;
+}
+
+.dropdown-item {
+    white-space: normal;
 }

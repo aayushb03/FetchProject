@@ -14,13 +14,53 @@ export class AppComponent {
 
   dogModel?: Model;
   randImage?: String;
+  dropdown: string[] = [];
+  displayed: string[] = [];
+  showSub: boolean = false;
 
   ngOnInit() {
     this.api.getBreeds().subscribe((data : any) => {
       this.dogModel = new Model(data);
-    })
+      this.onSubClick();
+    });
     this.api.getRandImg().subscribe((data : any) => {
       this.randImage = data.message;
-    })
+    });
+  }
+
+  onSubClick() {
+    if (this.dogModel) {
+      this.dropdown.length = 0;
+      if (this.showSub) {
+        for (const breed of this.dogModel.breeds) {
+          const b = breed.charAt(0).toUpperCase() + breed.slice(1);
+          this.dropdown.push(b);
+          for (const subBreed of this.dogModel.subBreeds[breed]) {
+            const s = subBreed.charAt(0).toUpperCase() + subBreed.slice(1);
+            const c = s + " " + b;
+            this.dropdown.push(c);
+          }
+        }
+      } else {
+        for (const breed of this.dogModel.breeds) {
+          const b = breed.charAt(0).toUpperCase() + breed.slice(1);
+          this.dropdown.push(b);
+        }
+      }
+    }
+  }
+
+  onSelect(breed : string) {
+    const s = breed.split(' ').reverse().map(x => {
+      return x.charAt(0).toLowerCase() + x.slice(1);
+    }).join('/')
+
+    if (!this.displayed.find(x => x==s)) {
+      this.displayed.push(s);
+    }
+  }
+
+  onDelete(breed : String) {
+    this.displayed = this.displayed.filter(x => x!=breed);
   }
 }
