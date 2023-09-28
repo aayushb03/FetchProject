@@ -17,13 +17,18 @@ export class AppComponent {
   dropdown: string[] = [];
   displayed: string[] = [];
   showSub: boolean = false;
+  selectedBreed = {
+    $ngOptionValue: undefined,
+    $ngOptionLabel: 'Search or Select Breed',
+    disabled: false
+  };
 
   ngOnInit() {
-    this.api.getBreeds().subscribe((data : any) => {
+    this.api.getBreeds().subscribe((data: any) => {
       this.dogModel = new Model(data);
       this.onSubClick();
     });
-    this.api.getRandImg().subscribe((data : any) => {
+    this.api.getRandImg().subscribe((data: any) => {
       this.randImage = data.message;
     });
   }
@@ -50,23 +55,31 @@ export class AppComponent {
     }
   }
 
-  onSelect(breed : string) {
-    const s = breed.split(' ').reverse().map(x => {
-      return x.charAt(0).toLowerCase() + x.slice(1);
-    }).join('/')
-
-    if (!this.displayed.find(x => x==s)) {
-      this.displayed.push(s);
+  onSelect(option: any) {
+    if (!option) {
+      this.selectedBreed = {
+        $ngOptionValue: undefined,
+        $ngOptionLabel: 'Select Breed',
+        disabled: false
+      };
+    } else {
+      const breed: string = option.$ngOptionLabel;
+      const s = breed.split(' ').reverse().map(x => {
+        return x.charAt(0).toLowerCase() + x.slice(1);
+      }).join('/');
+      if (!this.displayed.find(x => x == s)) {
+        this.displayed.unshift(s);
+      }
     }
   }
 
-  onDelete(breed : String) {
-    this.displayed = this.displayed.filter(x => x!=breed);
+  onDelete(breed: String) {
+    this.displayed = this.displayed.filter(x => x != breed);
   }
 
   selectAll() {
     for (const breed of this.dropdown) {
-      this.onSelect(breed);
+      this.onSelect({ $ngOptionLabel: breed });
     }
   }
 

@@ -34,7 +34,7 @@ export class DogcardComponent {
     event.target.src = 'https://media3.giphy.com/media/3oEjI6SIIHBdRxXI40/200w.gif?cid=6c09b952bte863vkjup3htoufh75xovqb6se5mreiu76nmjr&ep=v1_gifs_search&rid=200w.gif&ct=g';
   }
 
-  newImage(event : Event) {
+  newImage(event: Event) {
     event.preventDefault();
     if (this.breed) {
       this.api.getBreedImg(this.breed).subscribe((data: any) => {
@@ -45,7 +45,7 @@ export class DogcardComponent {
     }
   }
 
-  onDelete(event : Event) {
+  onDelete(event: Event) {
     event.preventDefault();
     if (this.breed) {
       this.delete.emit(this.breed);

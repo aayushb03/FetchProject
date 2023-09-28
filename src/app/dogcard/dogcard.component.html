@@ -1,12 +1,13 @@
-<div class="card" style="width: 18rem; height: 25rem">
-    <div class="embed-responsive embed-responsive-21by9">
-        <img class="card-img-top embed-responsive-item" [src]="image" alt="Card image" (error)="handleImageError($event)"/>
+<div class="card" style="width: 18rem; height: 23rem">
+    <div (click)="newImage($event)" title="Click for a new photo!" class="embed-responsive embed-responsive-21by9">
+        <img class="card-img-top embed-responsive-item" [src]="image" alt="Card image"
+            (error)="handleImageError($event)" />
     </div>
     <div class="card-body" style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
-        <h5 class="card-title">{{ label }}</h5>
-        <div class="btn-group" role="group">
-            <a href="#" (click)="newImage($event)" class="btn btn-sm btn-primary" style="width: 6rem;">New Image</a>
-            <a href="#" (click)="onDelete($event)" class="btn btn-sm btn-danger" style="width: 6rem;">Remove</a>
+        <div style="display:flex; gap: 0.5rem">
+            <h5 class="card-title" style="margin-top: 0.1rem; ">{{ label }}</h5>
+            <a href="#" (click)="onDelete($event)" class="btn btn-sm btn-danger"
+                style="height: 2rem; width: 2rem;">X</a>
         </div>
     </div>
 </div>

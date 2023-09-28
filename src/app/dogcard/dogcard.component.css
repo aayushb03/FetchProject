@@ -3,3 +3,7 @@
     height: 19rem;
     object-fit: cover;
 }
+
+.card-img-top:hover {
+    cursor: pointer;
+}

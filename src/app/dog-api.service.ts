@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http'
 })
 export class DogApiService {
 
-  constructor(private http:HttpClient) { 
+  constructor(private http: HttpClient) {
 
   }
 
@@ -18,7 +18,7 @@ export class DogApiService {
     return this.http.get('https://dog.ceo/api/breeds/image/random');
   }
 
-  getBreedImg(breed : String) {
+  getBreedImg(breed: String) {
     return this.http.get('https://dog.ceo/api/breed/' + breed + '/images/random');
   }
 }
